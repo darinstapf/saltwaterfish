@@ -1,0 +1,5 @@
+# Saltwater Fish Pro | production crawl guidance
+User-agent: *
+Allow: /
+
+Sitemap: https://saltwaterfishpro.com/sitemap.xml

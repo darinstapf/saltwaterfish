@@ -1,0 +1,9 @@
+{
+  "name": "Saltwater Fish Pro",
+  "short_name": "SWF Pro",
+  "description": "A stability-first field guide for mixed saltwater aquarium systems.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F6F8F7",
+  "theme_color": "#071D2B"
+}
