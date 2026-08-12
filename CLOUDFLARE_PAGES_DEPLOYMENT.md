@@ -1,6 +1,6 @@
 # Saltwater Fish Pro — Cloudflare Pages Deployment Guide
 
-This project is a static React/Vite site prepared for deployment through Cloudflare Pages using the connected GitHub repository.
+This project is a static React/Vite site prepared for deployment through Cloudflare Pages using the connected GitHub repository. Its current hero, feature, testing, lifestyle, and logo images are optimized and tracked under `client/public/images/`, so the site is self-contained for a Git-based Pages build.
 
 ## Production configuration
 
@@ -37,7 +37,7 @@ After setting these values, test a real subscription in a Cloudflare preview dep
 
 ## SEO assets included
 
-The site includes a Google Search Console verification meta tag, crawl directives in `client/public/robots.txt`, an initial sitemap at `client/public/sitemap.xml`, page-specific metadata and structured data for the home and representative article pages, Open Graph metadata, and SPA routing support through `client/public/_redirects`.
+The site includes a Google Search Console verification meta tag, crawl directives in `client/public/robots.txt`, an initial sitemap at `client/public/sitemap.xml`, page-specific metadata and structured data for the home and representative article pages, Open Graph metadata, optimized Git-tracked image assets, and SPA routing support through `client/public/_redirects`.
 
 ## References
 

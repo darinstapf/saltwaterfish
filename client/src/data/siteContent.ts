@@ -4,11 +4,11 @@
  */
 
 export const assets = {
-  hero: "/manus-storage/saltwaterfishpro-hero-mixed-reef_63314fc0.jpg",
-  blueprint: "/manus-storage/saltwaterfishpro-blueprint-butterflyfish_a0be254c.jpg",
-  testing: "/manus-storage/saltwaterfishpro-stability-testing_1b06cf07.jpg",
-  realSystem: "/manus-storage/saltwaterfishpro-real-system-home_06eae2fa.jpg",
-  mark: "/manus-storage/saltwaterfishpro-reef-window-mark_33a56822.png",
+  hero: "/images/hero-mixed-reef.jpg",
+  blueprint: "/images/blueprint-butterflyfish.jpg",
+  testing: "/images/stability-testing.jpg",
+  realSystem: "/images/real-system-home.jpg",
+  mark: "/images/reef-window-mark.png",
 };
 
 export const navigation = [
