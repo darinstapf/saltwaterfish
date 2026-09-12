@@ -23,6 +23,8 @@
 - [x] Validate the final static production output, launch routes, crawl behavior, and domain-cutover checklist.
 - [x] Diagnose the successful-but-404 Cloudflare Pages deployment and confirm its active branch, build command, and output directory.
 - [ ] Correct the Cloudflare Pages configuration or deployment artifact, then verify that the deployed Pages URL serves the generated static homepage.
+- [x] Compare the user-provided Cloudflare Pages deployment with the validated preview and identify the branch, build, cache, or asset mismatch.
+- [ ] Restore deployed page and image parity, then verify the corrected Cloudflare Pages URL directly.
 - [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
 - [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.
 - [x] Remove the repeated heavy Field Observation image overlays and restore photography-led guide imagery with selective, subtle captioning.
