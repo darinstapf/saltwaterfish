@@ -1,0 +1,25 @@
+# Saltwater Fish Pro — Launch Configuration Tasks
+
+- [ ] Request the HubSpot **portal ID** and **newsletter form ID** from Darin before activating the production email form.
+- [ ] Set the `VITE_HUBSPOT_PORTAL_ID` and `VITE_HUBSPOT_FORM_ID` build environment values in Cloudflare Pages after the HubSpot form is created.
+- [ ] Replace the HubSpot-ready placeholder with the embedded HubSpot form and verify an end-to-end submission before production launch.
+- [x] Copy all current generated image assets into Git-tracked `client/public/images/` and replace every `/manus-storage/` reference before independent Cloudflare Pages production deployment.
+- [x] Verify that the production build contains all five current visual assets and no remaining `/manus-storage/` references.
+- [ ] Move the Git-tracked image library to a CMS or dedicated media platform when the editorial content workflow is introduced.
+- [x] Add the user-provided Saltwater Fish Pro logo as a Git-tracked production asset and replace the existing generic brand mark across the site.
+- [x] Apply the approved high-priority editorial refinements: asymmetric guide-index composition, stronger field-journal notation, and reduced generic card repetition.
+- [x] Validate the completed visual refinement on desktop and mobile before the next deployment handoff.
+- [x] Enlarge and rebalance the supplied logo lockup in the desktop and mobile header so it reads as a confident premium brand signature.
+- [x] Audit the production site’s crawlability, canonical behavior, metadata, structured data, Core Web Vitals risk, index coverage, and internal links.
+- [x] Audit answer-engine and LLM discoverability: entity clarity, direct-answer content, citation readiness, author/reviewer evidence, and machine-readable content structure.
+- [x] Identify the pre-launch content, trust, and conversion gaps that materially limit organic growth and affiliate revenue.
+- [x] Define a compliant diversified monetization model and 90-day execution path toward $1,000 in monthly revenue.
+- [x] Review the final pre-launch remediation checklist and approve the highest-priority implementation work.
+- [x] Replace client-only crawlable routes with build-time static publication pages and correct HTTP-status behavior.
+- [x] Publish complete linked articles, category hubs, About, Editorial Standards, Disclosure, Privacy, and Contact pages without placeholders.
+- [x] Add truthful author/editorial evidence, source-note patterns, richer schema, breadcrumbs, social metadata, and answer-ready content structures.
+- [x] Repair all internal links and regenerate the production sitemap around published canonical pages only.
+- [x] Add responsive image loading, route code splitting, conversion analytics hooks, and a HubSpot-ready form that remains honest until IDs are supplied.
+- [x] Validate the final static production output, launch routes, crawl behavior, and domain-cutover checklist.
+- [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
+- [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.

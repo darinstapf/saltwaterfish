@@ -1,0 +1,342 @@
+/**
+ * Saltwater Fish Pro | Publication source
+ * Each record is written for a specific reader decision and includes transparent editorial context.
+ */
+
+import { assets } from "@/data/siteContent";
+
+export type ArticleSource = { label: string; url: string; note: string };
+export type ArticleFaq = { question: string; answer: string };
+
+export type Article = {
+  slug: string;
+  category: string;
+  label: string;
+  title: string;
+  description: string;
+  answer: string;
+  readTime: string;
+  published: string;
+  reviewed: string;
+  image: string;
+  imageAlt: string;
+  intro: string;
+  sections: Array<{ id: string; heading: string; paragraphs: string[] }>;
+  checklist: string[];
+  doAvoidWatch: { do: string; avoid: string; watch: string };
+  faqs: ArticleFaq[];
+  sources: ArticleSource[];
+  related: Array<{ label: string; href: string }>;
+};
+
+const waterQualitySources: ArticleSource[] = [
+  {
+    label: "Merck Veterinary Manual — Environmental Diseases of Aquatic Animals",
+    url: "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-of-aquatic-animals-in-aquatic-systems",
+    note: "Background on the relationship between aquatic animal health and water-quality management.",
+  },
+  {
+    label: "FishVets.org — Find a Fish Vet",
+    url: "https://www.fishvets.org/",
+    note: "Use a qualified aquatic veterinarian when illness, mortality, or persistent abnormal behavior is involved.",
+  },
+];
+
+export const articles: Article[] = [
+  {
+    slug: "mixed-saltwater-blueprint",
+    category: "Start Here",
+    label: "The system foundation",
+    title: "The Mixed Saltwater Aquarium Blueprint",
+    description: "A stability-first planning guide for a mixed saltwater aquarium that looks better because it works better.",
+    answer: "A stable mixed saltwater aquarium begins with a maintainable system plan: choose the tank, water source, equipment access, livestock ambition, and weekly care routine together before buying individual hardware. The right setup is the one you can observe and maintain consistently—not the most complicated version you can assemble on day one.",
+    readTime: "14 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.blueprint,
+    imageAlt: "A copperband butterflyfish moving through a carefully maintained mixed reef",
+    intro: "The expensive mistakes in saltwater aquariums rarely start with one bad purchase. They start when a tank is treated as a collection of parts instead of one living system.",
+    sections: [
+      { id: "before-you-buy", heading: "Before you buy, define the system you can sustain.", paragraphs: ["Start with the kind of aquarium you can care for with consistency—not only the version that looks best on launch day. Tank volume, placement, livestock ambition, equipment complexity, and maintenance time shape each other.", "A healthier system is usually the one whose routine fits its owner. Make room for maintenance, choose a sensible water source, and understand the full path from cycling to long-term care before choosing individual equipment."] },
+      { id: "stability", heading: "The five systems that must work together.", paragraphs: ["Saltwater Fish Pro uses a simple framework to keep a complex subject legible. Planning, water, equipment, livestock, and care are connected; no component should be selected in isolation.", "This does not mean every system must be elaborate. It means the equipment, livestock, and routine should support the same outcome: stable conditions that make good observation and gradual change possible."] },
+      { id: "first-decisions", heading: "The first right decisions are quiet ones.", paragraphs: ["A clean water source, practical equipment access, room for maintenance, and a deliberately paced livestock plan are rarely the things people photograph. They are the choices that give a system time to become resilient.", "Equipment guidance should begin with the use case. A piece of hardware cannot be evaluated honestly without the system around it."] },
+      { id: "next-step", heading: "Find the next right decision.", paragraphs: ["Use this blueprint as a starting point, then move to the guide that matches your system’s current stage. The aim is not to make every tank identical—it is to make every choice more intentional."] },
+    ],
+    checklist: ["Choose a location with service access and a safe maintenance path.", "Decide how water will be mixed, stored, and changed before livestock arrives.", "Write a realistic weekly routine before selecting optional equipment.", "Plan the order of cycling, testing, and livestock introduction."],
+    doAvoidWatch: { do: "Plan the maintenance routine while the tank is still empty.", avoid: "Solving a planning gap by adding more hardware after the fact.", watch: "Any change that alters multiple variables at once." },
+    faqs: [
+      { question: "What should I buy first for a mixed saltwater aquarium?", answer: "Begin with the system plan, tank placement, water-preparation approach, and service access. The first purchase should fit that plan rather than force the rest of the system around it." },
+      { question: "Is a larger saltwater aquarium always easier?", answer: "More water volume can soften short-term swings, but a larger tank also asks more of your budget, space, water-change process, and maintenance routine. Choose the largest system you can support consistently." },
+    ],
+    sources: waterQualitySources,
+    related: [{ label: "Choose a tank size with maintenance in mind", href: "/articles/choosing-saltwater-aquarium-size" }, { label: "Cycle a new mixed saltwater system", href: "/articles/cycling-a-mixed-saltwater-aquarium" }],
+  },
+  {
+    slug: "cycling-a-mixed-saltwater-aquarium",
+    category: "Build & Plan",
+    label: "Biological foundation",
+    title: "How to Cycle a Mixed Saltwater Aquarium Without Rushing Livestock",
+    description: "A measured, observation-led framework for establishing biological filtration before adding a mixed community.",
+    answer: "Cycling a mixed saltwater aquarium means establishing a dependable biological process for handling waste before adding a full livestock community. Treat the process as a documented observation period: test consistently, avoid adding animals to solve uncertainty, and introduce livestock only when the system’s behavior—not a calendar date—supports the next step.",
+    readTime: "10 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.testing,
+    imageAlt: "Careful saltwater testing beside a healthy aquarium",
+    intro: "A cycle is not a countdown. It is the moment when a new aquarium becomes a living process you can observe with enough confidence to protect the animals that will depend on it.",
+    sections: [
+      { id: "purpose", heading: "Treat cycling as a system observation period.", paragraphs: ["The purpose is not to reach a fashionable day count. It is to understand how the tank is processing inputs and to build a testing routine before livestock makes mistakes more costly.", "Use a written log. Record the date, what changed, test results, and observations. That record becomes the first useful piece of context when a system later behaves differently."] },
+      { id: "pace", heading: "Introduce complexity in a sequence you can interpret.", paragraphs: ["A new tank already has many moving parts: water source, rock, filtration, flow, temperature, lighting, and microbial activity. Avoid layering rapid livestock additions or multiple corrective products onto uncertainty.", "When conditions are ready for the next step, add one deliberate variable and observe it rather than trying to make a display look complete immediately."] },
+      { id: "escalate", heading: "Know when to pause and ask for qualified help.", paragraphs: ["If livestock is distressed, mortality occurs, or water quality cannot be stabilized, stop adding animals and seek qualified aquatic-veterinary or experienced local support. A rushed answer from the internet is not a substitute for a careful diagnosis."] },
+    ],
+    checklist: ["Create a simple test and observation log.", "Confirm water source and salinity process are repeatable.", "Plan the first livestock addition before purchasing it.", "Pause if testing or observations do not support the next step."],
+    doAvoidWatch: { do: "Use a consistent log before adding livestock.", avoid: "Treating a single reading or calendar date as the whole decision.", watch: "A cycle plan that does not explain how the water source and livestock pace are managed." },
+    faqs: [{ question: "How long does a saltwater aquarium take to cycle?", answer: "There is no responsible universal calendar answer. The practical question is whether the system’s testing and observations support a carefully paced next step." }, { question: "Should I add fish to speed up cycling?", answer: "Do not use livestock as a disposable test of an uncertain system. Establish the process and choose an introduction pace that protects animal welfare." }],
+    sources: waterQualitySources,
+    related: [{ label: "Build the full mixed-system plan", href: "/articles/mixed-saltwater-blueprint" }, { label: "Create a repeatable water-testing workflow", href: "/articles/mixed-system-water-testing-workflow" }],
+  },
+  {
+    slug: "choosing-saltwater-aquarium-size",
+    category: "Build & Plan",
+    label: "Planning with constraints",
+    title: "How to Choose a Saltwater Aquarium Size You Can Maintain",
+    description: "Choose a mixed-system tank size by balancing livestock ambition with space, water handling, service access, and routine.",
+    answer: "Choose a saltwater aquarium size by starting with the routine you can sustain: water storage, mixing, floor space, power, service access, budget, and the livestock community you hope to keep. More volume can add resilience, but the best tank size is the one that makes observation and maintenance easier—not the one that creates an unsustainable routine.",
+    readTime: "9 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.realSystem,
+    imageAlt: "A refined mixed saltwater aquarium integrated into a calm home setting",
+    intro: "Aquarium size is a care decision before it is a display decision. The tank has to fit the owner, the room, the water routine, and the future community at the same time.",
+    sections: [
+      { id: "routine", heading: "Start with the routine, not the display photo.", paragraphs: ["Map how water will be mixed, moved, and changed. Confirm that equipment can be cleaned without moving the tank and that the surrounding room can support safe access.", "A large display with no practical service path can create more avoidable risk than a modest system designed for consistent care."] },
+      { id: "ambition", heading: "Match volume to livestock ambition.", paragraphs: ["Fish behavior, territory, compatibility, and adult size matter more than an aspirational shopping list. Build a community plan before treating volume as a generic number.", "Leave room for the aquarium to settle. A system that looks slightly open at launch often has more flexibility later than one filled immediately."] },
+      { id: "budget", heading: "Budget for the system around the glass.", paragraphs: ["Account for water preparation, testing, power, maintenance tools, and the time needed to access them. The display tank is only one part of the operating system."] },
+    ],
+    checklist: ["Measure service clearance, not only wall width.", "Plan water preparation and storage before purchase.", "Choose livestock goals before choosing a final volume.", "Reserve budget for routine tools and redundancy."],
+    doAvoidWatch: { do: "Choose a system that makes care visible and repeatable.", avoid: "Selecting a tank solely by a single gallon number.", watch: "A purchase plan that leaves no budget for water handling or maintenance access." },
+    faqs: [{ question: "What is the best saltwater aquarium size for a beginner?", answer: "The best starting size is the one that supports the desired livestock and allows a repeatable water and maintenance routine. Avoid choosing only by a universal beginner number." }],
+    sources: waterQualitySources,
+    related: [{ label: "Build the mixed-system blueprint", href: "/articles/mixed-saltwater-blueprint" }, { label: "Plan a stable equipment routine", href: "/articles/protein-skimmer-context" }],
+  },
+  {
+    slug: "mixed-system-water-testing-workflow",
+    category: "Water & Stability",
+    label: "Measurement in context",
+    title: "A Water-Testing Workflow for a Mixed Saltwater System",
+    description: "Build a testing routine that creates context before you correct a number in a mixed saltwater aquarium.",
+    answer: "A useful water-testing workflow is consistent enough to reveal a pattern. Test at a regular cadence, record the reason for any extra test, note what changed in the system, and avoid turning a single reading into a chain of corrections. The goal is context for the next right decision, not a perfect-looking spreadsheet.",
+    readTime: "8 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.testing,
+    imageAlt: "Careful saltwater testing beside a healthy aquarium",
+    intro: "A parameter without context can create false urgency. A repeatable log makes the same reading more useful because it tells you what happened before it.",
+    sections: [
+      { id: "baseline", heading: "Establish a calm baseline routine.", paragraphs: ["Use the same test method, similar timing, and a simple record format. Make it easy enough that it survives a busy week.", "Write down meaningful changes such as livestock additions, feeding changes, equipment maintenance, lighting changes, or water preparation differences."] },
+      { id: "interpret", heading: "Interpret a pattern before making multiple corrections.", paragraphs: ["If a number moves, ask what changed and whether there is a visible system response. One measured correction followed by observation is usually more informative than several simultaneous adjustments.", "When fish or invertebrates appear distressed, persistent issues deserve qualified help rather than repeated unverified interventions."] },
+      { id: "record", heading: "Keep the log useful, not exhaustive.", paragraphs: ["A short note is enough: date, result, change, observation, and action. The purpose is to protect your own memory and make later decisions easier to audit."] },
+    ],
+    checklist: ["Pick a realistic test cadence.", "Record changes near each test.", "Write the intended outcome before a non-routine correction.", "Re-test and observe before stacking interventions."],
+    doAvoidWatch: { do: "Keep one comparable record over time.", avoid: "Changing several inputs in response to one result.", watch: "A repeating issue that returns after every quick correction." },
+    faqs: [{ question: "How often should I test a saltwater aquarium?", answer: "The useful cadence depends on system maturity, recent changes, and the parameter being observed. Consistency and contextual notes matter more than testing frequently without a clear purpose." }],
+    sources: waterQualitySources,
+    related: [{ label: "Use water changes with a clear purpose", href: "/articles/water-changes-and-stability" }, { label: "Troubleshoot water stability", href: "/guides/water-stability" }],
+  },
+  {
+    slug: "water-changes-and-stability",
+    category: "Water & Stability",
+    label: "Routine, without reflex",
+    title: "When Water Changes Help—and When They Hide the Real Issue",
+    description: "A measured framework for restoring balance without chasing every number in a mixed saltwater system.",
+    answer: "Water changes are a valuable maintenance tool, but they are not a substitute for identifying why a system is unstable. Use routine changes to support predictable care; use reactive changes only after defining the problem, documenting what changed, and planning what you will observe afterward.",
+    readTime: "8 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.testing,
+    imageAlt: "Careful water testing beside a healthy saltwater aquarium",
+    intro: "Water changes are an important part of responsible aquarium care. They are not, however, a substitute for understanding why a system feels unstable.",
+    sections: [
+      { id: "purpose", heading: "Start with the purpose of the change.", paragraphs: ["Before preparing water, name the outcome you are trying to achieve. Are you maintaining a steady routine, responding to a confirmed concern, or reacting to a visible change? These are different situations.", "Routine supports stability because it is predictable. Reactive intervention should be measured, deliberate, and followed by observation."] },
+      { id: "observe", heading: "Observe the system before correcting it.", paragraphs: ["A change in clarity, algae growth, coral behavior, or fish activity is information. Record changes in feeding, livestock, lighting, equipment, or maintenance timing.", "That pause prevents every symptom from being treated as a water-change problem when the cause may be elsewhere."] },
+      { id: "routine", heading: "Make the routine easy enough to repeat.", paragraphs: ["Store supplies together, use a schedule that fits real life, and keep simple notes on what was measured and what changed. Consistency gives later observations context."] },
+    ],
+    checklist: ["Name the purpose of a non-routine change.", "Record recent system changes first.", "Prepare replacement water consistently.", "Observe the result before making another correction."],
+    doAvoidWatch: { do: "Record the reason for a non-routine water change before acting.", avoid: "Making several corrections before observing the result of the first.", watch: "A recurring issue that returns immediately after routine maintenance." },
+    faqs: [{ question: "Can water changes fix every saltwater aquarium problem?", answer: "No. A water change can support maintenance or reduce a confirmed issue, but it cannot identify the source of recurring instability by itself." }],
+    sources: waterQualitySources,
+    related: [{ label: "Build a water-testing workflow", href: "/articles/mixed-system-water-testing-workflow" }, { label: "Start a stability-first system plan", href: "/articles/mixed-saltwater-blueprint" }],
+  },
+  {
+    slug: "algae-diagnostic-before-treatment",
+    category: "Water & Stability",
+    label: "Observation before intervention",
+    title: "An Algae Diagnostic: Questions to Ask Before You Treat the Tank",
+    description: "Use observation, change history, and a measured testing routine before treating algae as a single problem.",
+    answer: "Algae is not one diagnosis. Before selecting a treatment, document where it appears, what recently changed, how feeding, light, flow, maintenance, and water testing relate to the pattern, and whether livestock is affected. Treat the system context first; avoid stacking products or removing too many variables at once.",
+    readTime: "9 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.hero,
+    imageAlt: "A healthy mixed reef system with fish and coral",
+    intro: "Algae can be frustrating because it is visible. That visibility makes a quick product feel tempting, even when the underlying system is asking a different question.",
+    sections: [
+      { id: "map", heading: "Map the pattern before naming the solution.", paragraphs: ["Note where growth is concentrated, when it changed, and whether equipment, lighting, feeding, or maintenance changed nearby. A tank-wide pattern and a localized pattern may call for different questions.", "Photograph the same area over time. A simple record is more useful than relying on memory after several interventions."] },
+      { id: "variables", heading: "Change one meaningful variable at a time.", paragraphs: ["Removing, cleaning, changing lighting, altering feeding, and dosing at once makes it difficult to learn what mattered. Choose the smallest responsible change that can be observed.", "If a system is declining or animals are distressed, pause experimentation and seek qualified help."] },
+      { id: "prevent", heading: "Use routine to prevent repeat urgency.", paragraphs: ["A stable maintenance routine, clean service access, and regular observation do more for long-term control than a reactive product cycle."] },
+    ],
+    checklist: ["Photograph the affected area.", "Record the last system changes.", "Review feeding, light, flow, and maintenance context.", "Choose one measured next action and observe it."],
+    doAvoidWatch: { do: "Document the pattern before treating it.", avoid: "Stacking several remedies at once.", watch: "Any livestock stress alongside the algae pattern." },
+    faqs: [{ question: "Should I use an algae treatment immediately?", answer: "Start by understanding the pattern and recent system changes. A product may be appropriate in some circumstances, but it should not replace a reasoned diagnosis and observation plan." }],
+    sources: waterQualitySources,
+    related: [{ label: "Build a water-testing workflow", href: "/articles/mixed-system-water-testing-workflow" }, { label: "Use water changes with a clear purpose", href: "/articles/water-changes-and-stability" }],
+  },
+  {
+    slug: "mixed-reef-stocking-order",
+    category: "Livestock",
+    label: "Community planning",
+    title: "Mixed Reef Stocking Order: Build a Community, Not a Collection",
+    description: "Plan introductions around compatibility, territory, system maturity, quarantine decisions, and observation capacity.",
+    answer: "A mixed reef stocking order should be based on compatibility, adult behavior, territory, feeding needs, quarantine decisions, and the system’s ability to absorb the next change. Build a written community plan before purchase and introduce livestock at a pace that lets you observe each addition.",
+    readTime: "11 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.hero,
+    imageAlt: "A compatible mixed reef community with fish and coral",
+    intro: "A healthy display is not created by collecting attractive animals one by one. It is created by choosing a community that has room to settle, feed, and coexist.",
+    sections: [
+      { id: "plan", heading: "Create the community plan before the store visit.", paragraphs: ["List intended species, adult behavior, territory, feeding needs, and compatibility questions. Include what is unknown; uncertainty is a reason to pause, not to assume.", "The plan should also account for the tank’s current maturity and the owner’s ability to observe a new addition closely."] },
+      { id: "pace", heading: "Make introductions interpretable.", paragraphs: ["Spacing introductions creates time to observe feeding, behavior, social dynamics, and water-quality context. It also reduces the chance that a single stressful period contains too many new variables.", "No generic stocking order can replace species-specific research and careful observation."] },
+      { id: "welfare", heading: "Treat welfare questions as decision gates.", paragraphs: ["If compatibility, health, or treatment questions are unresolved, do not turn the display tank into an experiment. Seek species-specific expertise or qualified veterinary guidance where needed."] },
+    ],
+    checklist: ["Write a species and compatibility plan.", "Confirm adult behavior and territory needs.", "Plan observation time after each introduction.", "Keep a pause option when the system or animal signals uncertainty."],
+    doAvoidWatch: { do: "Choose a community with room to settle.", avoid: "Buying livestock because it is available before the system is ready.", watch: "Any plan that does not address health, compatibility, and introduction pace." },
+    faqs: [{ question: "What fish should I add first to a mixed reef?", answer: "There is no universal first fish. The right order depends on the specific community plan, system maturity, compatibility, and the ability to observe each addition responsibly." }],
+    sources: waterQualitySources,
+    related: [{ label: "Create a quarantine decision framework", href: "/articles/quarantine-decision-framework" }, { label: "Build the mixed-system blueprint", href: "/articles/mixed-saltwater-blueprint" }],
+  },
+  {
+    slug: "quarantine-decision-framework",
+    category: "Livestock",
+    label: "Health-risk planning",
+    title: "A Quarantine Decision Framework for New Saltwater Fish",
+    description: "Plan observation, isolation, record keeping, and qualified support before a new fish reaches the display tank.",
+    answer: "Quarantine is a planning decision that gives an aquarist time to observe a new fish outside the display system. Define the setup, observation record, source information, feeding and behavior notes, and escalation plan before purchase. If health concerns arise, use qualified aquatic-veterinary guidance rather than relying on a generic treatment recipe.",
+    readTime: "10 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.testing,
+    imageAlt: "A careful aquarium maintenance and observation workspace",
+    intro: "The hardest part of a quarantine decision is often making it early enough. A clear plan before purchase protects the display tank from becoming the first place where uncertainty is discovered.",
+    sections: [
+      { id: "setup", heading: "Define the observation setup before the fish arrives.", paragraphs: ["Plan the physical setup, access, water source, observation schedule, and record format in advance. The goal is not to overcomplicate the process; it is to make calm observation possible.", "Ask the seller what information is available about source, holding, and feeding. Record what you know and what you do not know."] },
+      { id: "observe", heading: "Observe behavior and feeding before making assumptions.", paragraphs: ["Track appetite, appearance, activity, and anything that changes. Avoid assuming that a common online label is a confirmed diagnosis.", "If signs of illness, injury, or ongoing distress appear, seek qualified aquatic-veterinary input before administering treatment."] },
+      { id: "transfer", heading: "Make display introduction a final decision, not the default.", paragraphs: ["Only move forward when the observation plan supports it. The purpose is to protect the existing community and to give the new fish a better start."] },
+    ],
+    checklist: ["Prepare the observation setup before purchase.", "Record source, feeding, appearance, and behavior.", "Decide who to contact if health concerns arise.", "Treat display introduction as a deliberate final step."],
+    doAvoidWatch: { do: "Make an observation plan before purchase.", avoid: "Treating an online guess as a confirmed diagnosis.", watch: "Persistent abnormal behavior, visible injury, or reduced feeding." },
+    faqs: [{ question: "Does every saltwater fish need quarantine?", answer: "The decision depends on the system, risk tolerance, source information, and ability to observe responsibly. A written plan is more useful than treating quarantine as an afterthought." }],
+    sources: waterQualitySources,
+    related: [{ label: "Plan a mixed-reef stocking order", href: "/articles/mixed-reef-stocking-order" }, { label: "Find qualified aquatic veterinary support", href: "https://www.fishvets.org/" }],
+  },
+  {
+    slug: "protein-skimmer-context",
+    category: "Equipment",
+    label: "Decision framework",
+    title: "The First Question to Ask Before Choosing a Protein Skimmer",
+    description: "Start with bioload, system goals, and maintenance tolerance—not a product list.",
+    answer: "Choose a protein skimmer by defining what the aquarium needs it to support: actual water volume, expected bioload, feeding approach, nutrient-management goal, available sump space, noise tolerance, and maintenance access. A manufacturer capacity rating is only one input and should not replace system context.",
+    readTime: "8 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.testing,
+    imageAlt: "A careful saltwater aquarium maintenance and testing workspace",
+    intro: "A protein skimmer should be selected for the system it will support. The most useful question is not which model is best—it is what the aquarium needs the equipment to do.",
+    sections: [
+      { id: "use-case", heading: "Define the use case before comparing models.", paragraphs: ["Begin with actual water volume, expected fish load, feeding style, nutrient-management approach, available sump space, and tolerance for noise and maintenance. Those conditions determine whether a particular design is appropriate.", "A capacity figure alone cannot describe the system. It is one input among several."] },
+      { id: "tradeoffs", heading: "Every setup has a trade-off.", paragraphs: ["A quieter skimmer may occupy more space. A larger body may require more deliberate maintenance. A compact option may be sensible for constrained systems but leave less room for future change.", "The best recommendation explains who equipment is for, what it asks of the owner, and when a different approach may be appropriate."] },
+      { id: "maintenance", heading: "Maintenance is part of the equipment decision.", paragraphs: ["Equipment performance is connected to accessibility. If a collection cup, pump, or air intake is difficult to reach, the routine becomes less likely to happen on time."] },
+    ],
+    checklist: ["Measure usable sump space and service clearance.", "Define fish load and feeding context.", "Decide noise and maintenance tolerance.", "Compare only models that fit the actual use case."],
+    doAvoidWatch: { do: "Measure service clearance before buying.", avoid: "Choosing by a single claimed capacity number.", watch: "A recommendation that does not state its assumed system context." },
+    faqs: [{ question: "Can a protein skimmer be too large?", answer: "The useful question is whether a skimmer’s design and operation fit the system’s goals and routine. Capacity alone does not determine the quality of the fit." }, { question: "Should I buy a skimmer before I have livestock?", answer: "Build the equipment plan around the future system, but avoid assuming one component can substitute for a complete maintenance and water-quality strategy." }],
+    sources: waterQualitySources,
+    related: [{ label: "Plan a water-testing workflow", href: "/articles/mixed-system-water-testing-workflow" }, { label: "Choose aquarium size with routine in mind", href: "/articles/choosing-saltwater-aquarium-size" }],
+  },
+  {
+    slug: "heater-redundancy-for-saltwater-aquariums",
+    category: "Equipment",
+    label: "Risk reduction",
+    title: "Saltwater Aquarium Heater Redundancy: Plan for Observation and Failure",
+    description: "Use placement, monitoring, service access, and contingency planning to make temperature management more resilient.",
+    answer: "Heater redundancy is not merely buying more equipment. It is designing a temperature-management plan that makes failures easier to detect and respond to: select appropriate equipment, place it for service access, confirm monitoring, document a response plan, and test the routine before it becomes urgent.",
+    readTime: "7 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.realSystem,
+    imageAlt: "A refined saltwater aquarium with accessible equipment planning",
+    intro: "Temperature equipment is easy to overlook because it should be quiet when everything is working. That is exactly why access, monitoring, and a clear response plan matter.",
+    sections: [
+      { id: "access", heading: "Make equipment serviceable before it is urgent.", paragraphs: ["Plan placement so equipment can be inspected, cleaned, and replaced without disrupting the system. A component that is hard to reach becomes easier to defer.", "Write down what equipment is installed and how it is monitored so the routine is not dependent on memory."] },
+      { id: "monitor", heading: "Use monitoring as a prompt to observe.", paragraphs: ["A temperature alert should begin a calm verification process, not automatic panic. Confirm the situation, review what changed, and follow a prepared escalation plan."] },
+      { id: "plan", heading: "Prepare the contingency before failure.", paragraphs: ["Keep a documented plan for power interruptions, equipment failure, and temporary temperature control. The right plan depends on the system, household, and local conditions."] },
+    ],
+    checklist: ["Confirm service access.", "Document monitoring and alert behavior.", "Keep replacement and contingency steps accessible.", "Review the response plan before a failure occurs."],
+    doAvoidWatch: { do: "Design for inspection and replacement.", avoid: "Treating a critical device as install-and-forget equipment.", watch: "A system with no documented contingency for temperature or power issues." },
+    faqs: [{ question: "Do I need more than one heater?", answer: "Redundancy should be designed around the aquarium’s risk profile, monitoring, and service plan. The aim is easier detection and safer response, not simply multiplying hardware." }],
+    sources: waterQualitySources,
+    related: [{ label: "Build a stable system plan", href: "/articles/mixed-saltwater-blueprint" }, { label: "Select equipment in context", href: "/guides/equipment" }],
+  },
+  {
+    slug: "circulation-flow-planning-for-mixed-reefs",
+    category: "Equipment",
+    label: "Flow in context",
+    title: "Mixed Reef Flow Planning: Start With Observation, Not a Pump Number",
+    description: "Plan circulation around aquascape, livestock needs, maintenance access, and the ability to observe results.",
+    answer: "Mixed reef flow planning should begin with the aquascape, livestock needs, detritus behavior, maintenance access, and the areas you can actually observe. A circulation number alone cannot tell you whether flow is appropriate; use it as one part of a system-level observation and adjustment process.",
+    readTime: "8 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.hero,
+    imageAlt: "A mixed reef aquarium with visible coral structure and fish movement",
+    intro: "Circulation is easier to talk about as a number than as a living pattern. The tank, however, experiences flow as direction, obstruction, movement, and the places where material collects.",
+    sections: [
+      { id: "observe", heading: "Observe the aquascape before selecting a number.", paragraphs: ["Look at rock structure, sheltered areas, visible detritus, coral behavior, and the service path for equipment. Those observations create better questions than a universal pump rating.", "A good plan also accounts for how the pattern will be checked after installation."] },
+      { id: "adjust", heading: "Adjust in deliberate increments.", paragraphs: ["Move one meaningful variable, observe the result, and note what changed. Avoid creating a confusing sequence of pump, lighting, feeding, and aquascape changes together."] },
+      { id: "maintain", heading: "Keep maintenance in the flow plan.", paragraphs: ["Access for cleaning and inspection is part of performance. A component that cannot be serviced consistently is not supporting a stable routine."] },
+    ],
+    checklist: ["Map sheltered areas and visible collection points.", "Plan equipment service access.", "Make one adjustment at a time.", "Record what changes in the observed pattern."],
+    doAvoidWatch: { do: "Use direct observation to guide adjustment.", avoid: "Choosing only by a turnover or pump-capacity number.", watch: "A flow plan that ignores aquascape, access, and livestock response." },
+    faqs: [{ question: "How much flow does a mixed reef need?", answer: "There is no single figure that replaces observation. Flow needs depend on the aquascape, animals, equipment placement, and the patterns you can see in the specific system." }],
+    sources: waterQualitySources,
+    related: [{ label: "Choose equipment in context", href: "/articles/protein-skimmer-context" }, { label: "Create a water-testing workflow", href: "/articles/mixed-system-water-testing-workflow" }],
+  },
+  {
+    slug: "mixed-reef-lighting-decision-framework",
+    category: "Equipment",
+    label: "Lighting in context",
+    title: "Mixed Reef Lighting: A Decision Framework Before You Change the Schedule",
+    description: "Plan aquarium lighting around system goals, livestock context, observation, and the ability to make measured adjustments.",
+    answer: "A mixed reef lighting decision should begin with the livestock plan, aquascape, existing system behavior, maintenance routine, and the changes you can observe clearly. Before changing intensity or schedule, document the current state and adjust one meaningful variable at a time. A lighting setting is part of the full system—not an isolated preset to copy.",
+    readTime: "9 min read",
+    published: "2026-09-12",
+    reviewed: "September 2026",
+    image: assets.realSystem,
+    imageAlt: "A carefully illuminated mixed saltwater reef aquarium in a home setting",
+    intro: "Lighting is often discussed as a list of numbers and presets. In a living mixed system, the useful question is how a lighting decision relates to the animals, the aquascape, the maintenance routine, and what you can observe over time.",
+    sections: [
+      { id: "starting-context", heading: "Document the current system before changing the schedule.", paragraphs: ["Record the current lighting timing, recent adjustments, livestock observations, and any other system changes that occurred nearby. That context is what makes a later comparison possible.", "If several variables have changed together, simplify the plan. A measured sequence is more useful than trying to interpret many simultaneous adjustments."] },
+      { id: "livestock-context", heading: "Use livestock context instead of a copied preset.", paragraphs: ["Different systems have different aquascapes, depths, livestock communities, maintenance routines, and history. A setting that appears to work elsewhere is a starting reference—not proof that it is appropriate for another aquarium.", "When uncertain, seek species-specific and qualified guidance rather than treating a broad online recommendation as a diagnosis."] },
+      { id: "observation", heading: "Make the next change observable.", paragraphs: ["Choose one intentional adjustment, define what will be observed, and allow time to understand the result. Keep notes alongside other changes such as flow, feeding, water preparation, or livestock additions."] },
+    ],
+    checklist: ["Record the current schedule before changing it.", "List other recent system changes.", "Define one observation goal for the next adjustment.", "Avoid stacking lighting, flow, feeding, and chemistry changes together."],
+    doAvoidWatch: { do: "Use a written observation plan before a lighting adjustment.", avoid: "Copying a preset without considering the actual system.", watch: "Any animal stress or decline that needs qualified, species-specific guidance." },
+    faqs: [{ question: "What is the best lighting schedule for a mixed reef?", answer: "There is no single schedule that replaces system context. The useful schedule is one you can document, observe, and adjust deliberately for the specific aquarium." }],
+    sources: waterQualitySources,
+    related: [{ label: "Plan mixed reef flow in context", href: "/articles/circulation-flow-planning-for-mixed-reefs" }, { label: "Build a stable mixed-system blueprint", href: "/articles/mixed-saltwater-blueprint" }],
+  },
+];
+
+export function getArticle(slug: string) {
+  return articles.find((article) => article.slug === slug);
+}
