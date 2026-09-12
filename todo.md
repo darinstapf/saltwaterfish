@@ -10,5 +10,16 @@
 - [x] Apply the approved high-priority editorial refinements: asymmetric guide-index composition, stronger field-journal notation, and reduced generic card repetition.
 - [x] Validate the completed visual refinement on desktop and mobile before the next deployment handoff.
 - [x] Enlarge and rebalance the supplied logo lockup in the desktop and mobile header so it reads as a confident premium brand signature.
+- [x] Audit the production site’s crawlability, canonical behavior, metadata, structured data, Core Web Vitals risk, index coverage, and internal links.
+- [x] Audit answer-engine and LLM discoverability: entity clarity, direct-answer content, citation readiness, author/reviewer evidence, and machine-readable content structure.
+- [x] Identify the pre-launch content, trust, and conversion gaps that materially limit organic growth and affiliate revenue.
+- [x] Define a compliant diversified monetization model and 90-day execution path toward $1,000 in monthly revenue.
+- [x] Review the final pre-launch remediation checklist and approve the highest-priority implementation work.
+- [x] Replace client-only crawlable routes with build-time static publication pages and correct HTTP-status behavior.
+- [x] Publish complete linked articles, category hubs, About, Editorial Standards, Disclosure, Privacy, and Contact pages without placeholders.
+- [x] Add truthful author/editorial evidence, source-note patterns, richer schema, breadcrumbs, social metadata, and answer-ready content structures.
+- [x] Repair all internal links and regenerate the production sitemap around published canonical pages only.
+- [x] Add responsive image loading, route code splitting, conversion analytics hooks, and a HubSpot-ready form that remains honest until IDs are supplied.
+- [x] Validate the final static production output, launch routes, crawl behavior, and domain-cutover checklist.
 - [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
 - [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.

@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="brand brand--footer" aria-label="Saltwater Fish Pro home">
             <img src={assets.mark} alt="Saltwater Fish Pro" className="brand__mark brand__mark--full" />
-            <span className="brand__caption"><strong>Marine Field Journal</strong><small>Stability-first guidance</small></span>
+            <span className="brand__caption"><strong>Saltwater Fish Pro</strong><small>Marine Field Journal · Stability-first guidance</small></span>
           </Link>
           <p className="site-footer__statement">Clear guidance for healthier, more stable mixed saltwater systems.</p>
         </div>
@@ -29,6 +29,8 @@ export function SiteFooter() {
             <Link href="/editorial-standards">Editorial standards</Link>
             <Link href="/disclosure">Affiliate disclosure</Link>
             <Link href="/about">About the publication</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/contact">Contact</Link>
           </div>
         </div>
       </div>

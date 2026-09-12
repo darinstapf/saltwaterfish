@@ -205,7 +205,7 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins,
   resolve: {
     alias: {
@@ -219,6 +219,14 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: isSsrBuild ? undefined : {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom", "wouter"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
   },
   server: {
     port: 3000,
@@ -238,4 +246,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));

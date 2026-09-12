@@ -19,7 +19,7 @@ export function SiteHeader() {
       <div className="site-header__inner">
         <Link href="/" className="brand" aria-label="Saltwater Fish Pro home">
           <img src={assets.mark} alt="Saltwater Fish Pro" className="brand__mark brand__mark--full" />
-          <span className="brand__caption"><strong>Marine Field Journal</strong><small>Stability-first guidance</small></span>
+          <span className="brand__caption"><strong>Saltwater Fish Pro</strong><small>Marine Field Journal · Stability-first guidance</small></span>
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
@@ -31,7 +31,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
-          <Link href="/search" className="icon-action" aria-label="Search Saltwater Fish Pro">
+          <Link href="/guides" className="icon-action" aria-label="Browse Saltwater Fish Pro guides">
             <Search size={19} strokeWidth={1.7} />
           </Link>
           <Button

@@ -44,9 +44,9 @@ export const latestStories = [
   },
   {
     category: "Real Systems",
-    title: "A calm first year: documenting a balanced mixed-system build",
-    description: "The decisions that made the difference long after the first equipment purchase.",
-    to: "/articles/first-year-case-study",
+    title: "Build a mixed reef community—not a collection",
+    description: "Compatibility, observation, and a better introduction sequence for a mixed system.",
+    to: "/articles/mixed-reef-stocking-order",
     readTime: "11 min read",
   },
 ];
