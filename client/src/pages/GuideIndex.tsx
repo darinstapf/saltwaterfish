@@ -21,7 +21,10 @@ const guides = [
 ];
 
 export default function GuideIndex() {
-  const [location] = useLocation();
+  const [rawLocation] = useLocation();
+  // Cloudflare Pages serves nested static routes as directories and may retain a trailing slash after hydration.
+  // Normalize it so /guides/equipment/ resolves to the same topic hub as /guides/equipment.
+  const location = rawLocation.length > 1 ? rawLocation.replace(/\/+$/, "") : rawLocation;
   const activeGuide = guides.find((guide) => location === `/guides/${guide.slug}`);
   const heading = activeGuide ? activeGuide.title : "Find the next right decision for your system.";
   const intro = activeGuide ? activeGuide.copy : "Start at the stage that matches your aquarium today. Each field guide links a practical decision to the whole living system.";
