@@ -21,5 +21,8 @@
 - [x] Repair all internal links and regenerate the production sitemap around published canonical pages only.
 - [x] Add responsive image loading, route code splitting, conversion analytics hooks, and a HubSpot-ready form that remains honest until IDs are supplied.
 - [x] Validate the final static production output, launch routes, crawl behavior, and domain-cutover checklist.
+- [x] Diagnose the successful-but-404 Cloudflare Pages deployment and confirm its active branch, build command, and output directory.
+- [ ] Correct the Cloudflare Pages configuration or deployment artifact, then verify that the deployed Pages URL serves the generated static homepage.
 - [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
 - [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.
+- [x] Remove the repeated heavy Field Observation image overlays and restore photography-led guide imagery with selective, subtle captioning.
