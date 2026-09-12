@@ -12,8 +12,8 @@ export function SiteFooter() {
       <div className="site-footer__grid">
         <div>
           <Link href="/" className="brand brand--footer" aria-label="Saltwater Fish Pro home">
-            <img src={assets.mark} alt="" className="brand__mark" />
-            <span>Saltwater Fish Pro</span>
+            <img src={assets.mark} alt="Saltwater Fish Pro" className="brand__mark brand__mark--full" />
+            <span className="brand__caption"><strong>Marine Field Journal</strong><small>Stability-first guidance</small></span>
           </Link>
           <p className="site-footer__statement">Clear guidance for healthier, more stable mixed saltwater systems.</p>
         </div>

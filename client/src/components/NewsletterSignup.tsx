@@ -20,7 +20,7 @@ export function NewsletterSignup() {
 
   return (
     <section className="newsletter" aria-labelledby="newsletter-heading">
-      <div className="newsletter__coral" aria-hidden="true"><img src={assets.mark} alt="" /></div>
+      <div className="newsletter__coral" aria-hidden="true"><img src={assets.mark} alt="" /><span>Field note / 2026</span></div>
       <div className="newsletter__copy">
         <span className="eyebrow eyebrow--aqua">Weekly stability note</span>
         <h2 id="newsletter-heading">A calmer way to care for your reef.</h2>

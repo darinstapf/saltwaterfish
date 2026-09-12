@@ -8,7 +8,7 @@ export const assets = {
   blueprint: "/images/blueprint-butterflyfish.jpg",
   testing: "/images/stability-testing.jpg",
   realSystem: "/images/real-system-home.jpg",
-  mark: "/images/reef-window-mark.png",
+  mark: "/images/saltwater-fish-pro-logo.png",
 };
 
 export const navigation = [

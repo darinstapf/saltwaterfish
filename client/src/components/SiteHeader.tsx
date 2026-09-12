@@ -18,14 +18,14 @@ export function SiteHeader() {
     <header className={`site-header ${isHome ? "site-header--home" : ""}`}>
       <div className="site-header__inner">
         <Link href="/" className="brand" aria-label="Saltwater Fish Pro home">
-          <img src={assets.mark} alt="" className="brand__mark" />
-          <span>Saltwater Fish Pro</span>
+          <img src={assets.mark} alt="Saltwater Fish Pro" className="brand__mark brand__mark--full" />
+          <span className="brand__caption"><strong>Marine Field Journal</strong><small>Stability-first guidance</small></span>
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href} className="site-nav__link">
-              {item.label}
+            <Link key={item.href} href={item.href} className={`site-nav__link ${location === item.href ? "site-nav__link--active" : ""}`}>
+              <span>{item.label}</span><i aria-hidden="true" />
             </Link>
           ))}
         </nav>
@@ -41,26 +41,28 @@ export function SiteHeader() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            <span className="menu-trigger__label">{menuOpen ? "Close" : "Menu"}</span>{menuOpen ? <X size={19} /> : <Menu size={19} />}
           </Button>
         </div>
       </div>
 
       {menuOpen && (
         <div className="mobile-menu">
-          {navigation.map((item) => (
+          <div className="mobile-menu__index"><span>Field index</span><span>01—05</span></div>
+          {navigation.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
-              className="mobile-menu__link"
+              className={`mobile-menu__link ${location === item.href ? "mobile-menu__link--active" : ""}`}
               onClick={() => setMenuOpen(false)}
             >
-              {item.label}
+              <small>0{index + 1}</small><span>{item.label}</span>
             </Link>
           ))}
           <Link href="/troubleshoot" className="mobile-menu__link mobile-menu__link--accent" onClick={() => setMenuOpen(false)}>
-            Solve a Tank Problem
+            <small>↗</small><span>Solve a Tank Problem</span>
           </Link>
+          <div className="mobile-menu__seal" aria-hidden="true"><img src={assets.mark} alt="" /></div>
         </div>
       )}
     </header>

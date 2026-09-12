@@ -18,6 +18,13 @@ const guides = [
   { slug: "equipment", icon: Wrench, label: "Equipment", title: "Select hardware in context.", copy: "Honest selection criteria for lighting, skimming, circulation, testing, and resilient system care.", to: "/articles/protein-skimmer-context" },
 ];
 
+const guideVisuals: Record<string, { image?: string; alt?: string; observation: string }> = {
+  "build-plan": { observation: "A stable display begins as a serviceable, sustainable plan—not an equipment list." },
+  "water-stability": { image: assets.testing, alt: "Careful saltwater testing beside a healthy aquarium", observation: "Measure the pattern before you decide what the water is asking for." },
+  livestock: { image: assets.hero, alt: "A healthy mixed saltwater system with compatible fish and coral", observation: "Compatibility is revealed in the whole living system, not a single species profile." },
+  equipment: { image: assets.realSystem, alt: "A refined saltwater aquarium integrated into a calm home setting", observation: "The best hardware makes care calmer, more visible, and easier to repeat." },
+};
+
 export default function GuideIndex() {
   const [location] = useLocation();
   const activeGuide = guides.find((guide) => location === `/guides/${guide.slug}`);
@@ -35,7 +42,7 @@ export default function GuideIndex() {
     <div className="site-shell">
       <SiteHeader />
       <main>
-        <section className="guide-hero"><span className="eyebrow eyebrow--aqua">Saltwater Fish Pro guides</span><h1>{heading}</h1><p>{intro}</p></section>
+        <section className={`guide-hero ${activeGuide ? "guide-hero--chapter" : "guide-hero--index"}`}><div className="guide-hero__content"><span className="eyebrow eyebrow--aqua">Saltwater Fish Pro guides</span><h1>{heading}</h1><p>{intro}</p></div></section>
         {guideFeature ? <>
           <section className="guide-feature">
             <div className="guide-feature__image reef-window"><img src={guideFeature.image} alt={guideFeature.alt} /></div>
@@ -47,7 +54,14 @@ export default function GuideIndex() {
             <div className="guide-thread__list">{pillars.map((pillar) => <div className={pillar.title.toLowerCase() === activeGuide?.label.split(" ")[0].toLowerCase() ? "guide-thread__item guide-thread__item--current" : "guide-thread__item"} key={pillar.number}><span>{pillar.number}</span><strong>{pillar.title}</strong></div>)}</div>
           </section>
           <section className="guide-relations"><div><span className="eyebrow">Related field guides</span><h2>Keep the full system in view.</h2></div><div className="guide-relations__list">{guides.filter((guide) => guide.slug !== activeGuide?.slug).map((guide) => <Link href={`/guides/${guide.slug}`} className="guide-relation" key={guide.slug}><span>{guide.label}</span><ArrowUpRight size={18} /></Link>)}</div></section>
-        </> : <section className="guide-grid-section"><div className="guide-grid">{guides.map((guide) => { const Icon = guide.icon; return <Link href={guide.to} className="guide-card" key={guide.label}><div className="guide-card__icon"><Icon size={25} strokeWidth={1.5} /></div><span className="eyebrow">{guide.label}</span><h2>{guide.title}</h2><p>{guide.copy}</p><span className="guide-card__arrow"><ArrowUpRight size={19} /></span></Link>; })}</div></section>}
+        </> : <>
+          <section className="guide-index-observation">
+            <div className="guide-index-observation__image reef-window"><img src={assets.blueprint} alt="A copperband butterflyfish moving through a carefully maintained mixed reef" /></div>
+            <div className="guide-index-observation__copy"><span className="eyebrow eyebrow--teal">Field observation / 01.01</span><h2>Every system has a next right decision.</h2><p>Start from the conditions you can observe today. These chapters turn broad reefkeeping advice into an ordered, calmer path through the living system.</p><div className="guide-index-observation__record"><span>System map</span><b>Plan → Water → Equipment → Livestock → Care</b></div></div>
+          </section>
+          <section className="guide-index-thread" aria-label="Saltwater Fish Pro stability thread">{pillars.map((pillar) => <div key={pillar.number}><span>{pillar.number}</span><strong>{pillar.title}</strong><small>{pillar.summary}</small></div>)}</section>
+          <section className="guide-chapters">{guides.map((guide, index) => { const Icon = guide.icon; const visual = guideVisuals[guide.slug]; return <Link href={guide.to} className={`guide-chapter guide-chapter--${index + 1}`} key={guide.label}><div className="guide-chapter__index"><span>Chapter</span><strong>0{index + 1}</strong></div><div className="guide-chapter__copy"><div className="guide-chapter__label"><Icon size={18} strokeWidth={1.5} /><span>{guide.label}</span></div><h2>{guide.title}</h2><p>{guide.copy}</p><div className="guide-chapter__observation"><span>Field direction</span><p>{visual.observation}</p></div></div>{visual.image && <div className="guide-chapter__image reef-window"><img src={visual.image} alt={visual.alt} /></div>}<ArrowUpRight className="guide-chapter__arrow" size={21} /></Link>; })}</section>
+        </>}
         <section className="guide-feature-strip"><div><span className="eyebrow eyebrow--aqua">Start with the foundation</span><h2>The Mixed Saltwater Aquarium Blueprint</h2><p>A thoughtful planning path before the first purchase or first livestock addition.</p></div><Link href="/articles/mixed-saltwater-blueprint" className="button-link button-link--light">Read the blueprint <ArrowUpRight size={17} /></Link></section>
         <div className="newsletter-wrap"><NewsletterSignup /></div>
       </main>

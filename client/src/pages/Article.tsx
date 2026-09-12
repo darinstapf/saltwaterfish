@@ -47,6 +47,7 @@ export default function Article() {
               <span><Clock3 size={15} /> {article.readTime}</span>
               <span><CalendarDays size={15} /> Reviewed {article.reviewed}</span>
             </div>
+            <div className="article-hero__record"><span>Field record</span><b>SWF / {article.slug.slice(0, 10).toUpperCase()}</b><span>System type</span><b>Mixed marine</b><span>Review cadence</span><b>Annual</b></div>
           </div>
         </section>
 
@@ -70,7 +71,8 @@ export default function Article() {
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {article.slug === "mixed-saltwater-blueprint" && index === 1 && (
                   <div className="article-pillars">
-                    {pillars.map((pillar) => <div key={pillar.number}><span>{pillar.number}</span><h3>{pillar.title}</h3><p>{pillar.summary}</p></div>)}
+                    <div className="article-pillars__core"><span className="eyebrow eyebrow--teal">System plate / 01</span><h3>A stable mixed system</h3><p>Every choice has a relationship to the next. Use this reference to locate the system—not a single isolated component.</p></div>
+                    <div className="article-pillars__nodes">{pillars.map((pillar) => <div key={pillar.number}><span>{pillar.number}</span><div><h3>{pillar.title}</h3><p>{pillar.summary}</p></div></div>)}</div>
                   </div>
                 )}
               </section>
