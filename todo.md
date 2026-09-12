@@ -9,5 +9,6 @@
 - [x] Add the user-provided Saltwater Fish Pro logo as a Git-tracked production asset and replace the existing generic brand mark across the site.
 - [x] Apply the approved high-priority editorial refinements: asymmetric guide-index composition, stronger field-journal notation, and reduced generic card repetition.
 - [x] Validate the completed visual refinement on desktop and mobile before the next deployment handoff.
+- [x] Enlarge and rebalance the supplied logo lockup in the desktop and mobile header so it reads as a confident premium brand signature.
 - [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
 - [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.
