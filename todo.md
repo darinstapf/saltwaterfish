@@ -28,3 +28,11 @@
 - [ ] Review the creative-direction audit and approve the highest-impact visual transformation work before implementing it.
 - [ ] Apply the approved premium-experience refinements and validate the revised desktop and mobile page flows.
 - [x] Remove the repeated heavy Field Observation image overlays and restore photography-led guide imagery with selective, subtle captioning.
+
+## SEO remediation — October 2026
+
+- [x] Normalize every published URL, canonical tag, Open Graph URL, structured-data URL, sitemap entry, and internal link to Cloudflare Pages’ trailing-slash directory URLs.
+- [x] Remove the unresolved optional analytics script placeholder that is emitted as invalid production JavaScript when analytics variables are not configured.
+- [x] Shorten overlong SEO title tags and expand thin meta descriptions while preserving visible article headlines and page copy.
+- [x] Validate generated static HTML, sitemap targets, internal links, script references, and client-console behavior in a preview deployment.
+- [ ] Attach `www.saltwaterfishpro.com` to Cloudflare Pages and configure one-hop 301 www-to-apex forwarding; the current Cloudflare-zone 522 response cannot be corrected from the repository.
