@@ -31,6 +31,7 @@
 
 ## SEO remediation — October 2026
 
+- [x] Correct GitHub Actions setup order so pnpm is installed before the Node dependency cache is enabled.
 - [x] Normalize every published URL, canonical tag, Open Graph URL, structured-data URL, sitemap entry, and internal link to Cloudflare Pages’ trailing-slash directory URLs.
 - [x] Remove the unresolved optional analytics script placeholder that is emitted as invalid production JavaScript when analytics variables are not configured.
 - [x] Shorten overlong SEO title tags and expand thin meta descriptions while preserving visible article headlines and page copy.
