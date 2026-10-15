@@ -10,11 +10,24 @@ import { pathToFileURL } from "node:url";
 const root = process.cwd();
 const outputDir = join(root, "dist", "public");
 const template = await readFile(join(outputDir, "index.html"), "utf8");
-const { renderPublicationRoute, publicationRoutes } = await import(pathToFileURL(join(root, "dist", "server", "entry-server.js")).href);
+const { renderPublicationRoute, publicationRoutes } = await import(
+  pathToFileURL(join(root, "dist", "server", "entry-server.js")).href
+);
 
 const siteUrl = "https://saltwaterfishpro.com";
 const defaultImage = `${siteUrl}/images/hero-mixed-reef.jpg`;
 const routes = publicationRoutes;
+
+function canonicalPath(path) {
+  if (!path || path === "/" || !path.startsWith("/")) return path;
+
+  const suffixIndex = path.search(/[?#]/);
+  const pathname = suffixIndex === -1 ? path : path.slice(0, suffixIndex);
+  const suffix = suffixIndex === -1 ? "" : path.slice(suffixIndex);
+  const normalizedPathname = pathname.replace(/\/+$/, "") || "/";
+
+  return `${normalizedPathname === "/" ? "/" : `${normalizedPathname}/`}${suffix}`;
+}
 
 function escapeHtml(value = "") {
   return String(value)
@@ -25,12 +38,16 @@ function escapeHtml(value = "") {
 }
 
 function metaTags(seo) {
-  const title = seo?.title ?? "Saltwater Fish Pro | A Stability-First Field Guide";
-  const description = seo?.description ?? "Stability-first mixed saltwater aquarium guidance.";
-  const canonical = `${siteUrl}${seo?.path ?? "/"}`;
+  const title =
+    seo?.title ?? "Saltwater Fish Pro | A Stability-First Field Guide";
+  const description =
+    seo?.description ?? "Stability-first mixed saltwater aquarium guidance.";
+  const canonical = `${siteUrl}${canonicalPath(seo?.path ?? "/")}`;
   const image = seo?.image ?? defaultImage;
   const type = seo?.type ?? "website";
-  const jsonLd = seo?.schema ? `<script type="application/ld+json">${JSON.stringify(seo.schema)}</script>` : "";
+  const jsonLd = seo?.schema
+    ? `<script type="application/ld+json">${JSON.stringify(seo.schema)}</script>`
+    : "";
   return [
     `<title>${escapeHtml(title)}</title>`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
@@ -56,7 +73,12 @@ async function writeRoute(route) {
     .replace("<!-- publication-seo -->", metaTags(seo))
     .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 
-  const destination = route === "/" ? join(outputDir, "index.html") : route === "/404" ? join(outputDir, "404.html") : join(outputDir, route.slice(1), "index.html");
+  const destination =
+    route === "/"
+      ? join(outputDir, "index.html")
+      : route === "/404"
+        ? join(outputDir, "404.html")
+        : join(outputDir, route.slice(1), "index.html");
   await mkdir(dirname(destination), { recursive: true });
   await writeFile(destination, rendered, "utf8");
 }
@@ -64,6 +86,6 @@ async function writeRoute(route) {
 await rm(join(outputDir, "404.html"), { force: true });
 await Promise.all(routes.map(writeRoute));
 
-const sitemapRoutes = routes.filter((route) => route !== "/404");
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapRoutes.map((route) => `  <url><loc>${siteUrl}${route}</loc><lastmod>2026-09-12</lastmod></url>`).join("\n")}\n</urlset>\n`;
+const sitemapRoutes = routes.filter(route => route !== "/404");
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapRoutes.map(route => `  <url><loc>${siteUrl}${canonicalPath(route)}</loc><lastmod>2026-09-12</lastmod></url>`).join("\n")}\n</urlset>\n`;
 await writeFile(join(outputDir, "sitemap.xml"), sitemap, "utf8");

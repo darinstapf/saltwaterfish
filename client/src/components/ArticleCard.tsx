@@ -4,7 +4,7 @@
  */
 
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "wouter";
+import { PublicationLink } from "@/components/PublicationLink";
 
 type ArticleCardProps = {
   category: string;
@@ -14,16 +14,25 @@ type ArticleCardProps = {
   readTime: string;
 };
 
-export function ArticleCard({ category, title, description, to, readTime }: ArticleCardProps) {
+export function ArticleCard({
+  category,
+  title,
+  description,
+  to,
+  readTime,
+}: ArticleCardProps) {
   return (
     <article className="article-card">
       <div className="article-card__rule" />
       <span className="eyebrow">{category}</span>
-      <h3><Link href={to}>{title}</Link></h3>
+      <h3>
+        <PublicationLink href={to}>{title}</PublicationLink>
+      </h3>
       <p>{description}</p>
-      <Link href={to} className="article-card__link">
-        <span>{readTime}</span><ArrowUpRight size={17} strokeWidth={1.6} />
-      </Link>
+      <PublicationLink href={to} className="article-card__link">
+        <span>{readTime}</span>
+        <ArrowUpRight size={17} strokeWidth={1.6} />
+      </PublicationLink>
     </article>
   );
 }
