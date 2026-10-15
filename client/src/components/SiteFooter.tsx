@@ -3,7 +3,7 @@
  * Footer closes the experience with deep-ocean framing, transparent standards, and useful reading paths.
  */
 
-import { Link } from "wouter";
+import { PublicationLink } from "@/components/PublicationLink";
 import { assets } from "@/data/siteContent";
 
 export function SiteFooter() {
@@ -11,26 +11,49 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__grid">
         <div>
-          <Link href="/" className="brand brand--footer" aria-label="Saltwater Fish Pro home">
-            <img src={assets.mark} alt="Saltwater Fish Pro" className="brand__mark brand__mark--full" />
-            <span className="brand__caption"><strong>Saltwater Fish Pro</strong><small>Marine Field Journal · Stability-first guidance</small></span>
-          </Link>
-          <p className="site-footer__statement">Clear guidance for healthier, more stable mixed saltwater systems.</p>
+          <PublicationLink
+            href="/"
+            className="brand brand--footer"
+            aria-label="Saltwater Fish Pro home"
+          >
+            <img
+              src={assets.mark}
+              alt="Saltwater Fish Pro"
+              className="brand__mark brand__mark--full"
+            />
+            <span className="brand__caption">
+              <strong>Saltwater Fish Pro</strong>
+              <small>Marine Field Journal · Stability-first guidance</small>
+            </span>
+          </PublicationLink>
+          <p className="site-footer__statement">
+            Clear guidance for healthier, more stable mixed saltwater systems.
+          </p>
         </div>
         <div className="site-footer__links">
           <div>
             <span className="eyebrow eyebrow--aqua">Explore</span>
-            <Link href="/start-here">Start here</Link>
-            <Link href="/guides/water-stability">Water & stability</Link>
-            <Link href="/guides/equipment">Equipment</Link>
+            <PublicationLink href="/start-here">Start here</PublicationLink>
+            <PublicationLink href="/guides/water-stability">
+              Water & stability
+            </PublicationLink>
+            <PublicationLink href="/guides/equipment">
+              Equipment
+            </PublicationLink>
           </div>
           <div>
             <span className="eyebrow eyebrow--aqua">Standards</span>
-            <Link href="/editorial-standards">Editorial standards</Link>
-            <Link href="/disclosure">Affiliate disclosure</Link>
-            <Link href="/about">About the publication</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/contact">Contact</Link>
+            <PublicationLink href="/editorial-standards">
+              Editorial standards
+            </PublicationLink>
+            <PublicationLink href="/disclosure">
+              Affiliate disclosure
+            </PublicationLink>
+            <PublicationLink href="/about">
+              About the publication
+            </PublicationLink>
+            <PublicationLink href="/privacy">Privacy</PublicationLink>
+            <PublicationLink href="/contact">Contact</PublicationLink>
           </div>
         </div>
       </div>
